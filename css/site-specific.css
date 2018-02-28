@@ -1,0 +1,301 @@
+/* fonts: 
+font-family: 'Roboto', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Wire One', sans-serif;
+font-family: 'Amiko', sans-serif; */
+
+body{
+    font-family: 'Roboto Condensed', helvetica, sans-serif;
+}
+
+/*navbar styling*/
+.navbar{
+    background-color: #fff;
+    border-bottom: .15em solid #33000d;
+    margin-bottom: 0;
+}
+
+.container{
+    padding: 0;
+    margin: auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+.container .navbar-header {
+    padding: 0.25% 0 0 1%;
+    margin: auto;
+}
+
+.container .navbar-right {
+    padding: 0.25% 1% 0 0;
+    margin: auto;
+}
+
+.row p{
+   margin-left: 7%;
+   margin-right: auto;
+}
+
+.row h4{
+   margin-left: 11%;
+   margin-right: auto;
+}
+
+.row #indented{
+   margin-left: 11%;
+   margin-right: auto; 
+}
+
+.row img{
+    margin-right: 0;
+    margin-right: auto;
+}
+
+.row h3{
+    margin-left: 2%;
+    margin-right: auto;
+}
+
+/*Changing color for the button*/
+button.navbar-toggle{
+    background:transparent;
+    border-color:transparent;
+    margin-bottom: 1%;
+}
+
+button.navbar-toggle span{
+   background:#3c3c3c;
+   opacity: 0.8;
+}
+
+/*modifies styling of navbar left */
+.navbar-brand {
+    font-family: 'Amiko', sans-serif;   
+    color: #33000d;
+    font-weight: 400;
+    font-size: 2.5em;  
+}
+
+a.navbar-brand:hover{
+    font-weight: bold;
+    border-bottom: .05em solid #33000d;
+    color: #000;
+}
+
+/*modifies styling of navbar right */
+.navbar-right a{
+    font-family: 'Amiko', sans-serif;   
+    color: #3c3c3c;
+    font-weight: 400;
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+.nav li a{
+    margin-bottom: 0;
+    margin-top:0;
+}
+
+.nav li a:hover{
+    background-color: transparent;
+    font-weight: bold;
+    color: #000;
+    border-bottom: .05em solid #33000d;
+}
+
+/* collapsed menu*/
+.navbar-nav {
+    color: #000;
+    text-align: center;
+}
+
+
+/*General style*/
+
+/*individual pages style*/
+h3 {
+    font-family: 'Amiko', sans-serif; 
+    font-weight: 500;
+    font-size: 2.3em;
+    text-align: left;
+    padding: 1.5% 0 0 0; 
+    color: #252525;
+}
+
+p {
+    font-family: 'Amiko', sans-serif; 
+    font-weight: 400;
+    font-size: 1em;
+    text-align: left;
+    padding: 0 0 0 0; 
+    color: #4d4d4d;
+}
+
+h4 {
+    font-family: 'Amiko', sans-serif; 
+    font-weight: 500;
+    font-size: 1.2em;
+    text-align: left;
+    padding: 1.5% 0 0 0; 
+    color: #252525;
+    text-transform: uppercase;
+}
+
+h4 img{
+    width: 100%;
+    height: auto;
+}
+
+p.quote{
+    font-family: 'Amiko', sans-serif; 
+    font-weight: 400;
+    font-size: 3em;
+    text-align: center;
+    padding: 1.5% 0 0 0; 
+    color: #484848;
+}
+
+/*styles text that spans page to full bleed*/
+.col-md-12 p{
+    padding-right: 25%;
+    text-align: left;
+    height: auto;
+}
+
+/*sizes images*/
+.col-md-2 img{
+    width: 100%;
+    height: auto;
+    padding: 0 0 0 0; 
+}
+.col-md-4 img{
+    width: 100%;
+    height: auto;
+    padding: 0 0 0 0; 
+}
+.col-md-5 img{
+    width: 82%;
+    height: auto;
+    padding: 0 0 0 0; 
+}
+.col-md-6 img{
+    width: 100%;
+    height: auto;
+    padding: 0 0 0 0; 
+}
+.col-md-8 img{
+    width: 100%;
+    height: auto;
+    padding: 0 0 0 0; 
+}
+
+.col-md-10 img{
+    width: 100%;
+    height: auto;
+    padding: 0 0 0 0; 
+}
+.col-md-12 img{
+    width: 100%;
+    height: auto;
+    padding: 0 0 0 0;
+}
+
+#homeimage img{
+    padding: 0;
+    margin: auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+/*landing page style*/
+/*adds background to text*/
+.backgroundcliptext .index-link-styling {
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: url(../img/background_text.png);
+    text-decoration: none;
+    color: transparent;
+}
+
+.backgroundcliptext .index-link-styling-1 {
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: url(../img/background_text.png);
+    text-decoration: none;
+    color: transparent;
+}
+
+/*styling for entire title page basically*/
+.title{
+    padding: 30% 0 0 2%; /* top|right|bottom|left */ 
+    margin: auto;
+    max-height: 100%;
+    vertical-align: center;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 400;
+    font-size: 10em;
+    text-align: left;
+    padding: 1.5% 0 0 0; 
+    line-height: 40%;
+}
+
+p.index-link-styling{
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 400;
+    font-size: 4em;
+    text-align: left;
+    bottom: 0;
+}
+
+col-md-8p.index-link-styling-1{
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 400;
+    font-size: 4em;
+    text-align: left;
+    margin-bottom: 3%;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    color: #C3C0C0;
+    bottom: 0%;
+    margin-top: 1em;
+}
+
+/* responsive styling for font size in landing page*/
+@media screen and (max-width: 1000px) {
+    h1 {
+        font-size: 8em;
+    }
+
+    p.index-link-styling{
+        font-size: 4em;
+    }
+}
+
+@media screen and (max-width: 815px) {
+    h1 {
+        font-size: 6em;
+    }
+    
+    p.index-link-styling{
+        font-size: 3em;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    h1 {
+        font-size: 4em;
+    }
+    
+    p.index-link-styling{
+        font-size: 2em;
+    }
+}
