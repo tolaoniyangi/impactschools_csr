@@ -1,18 +1,18 @@
 body{
-    font-family: 'Montserrat', helvetica, sans-serif;
+    font-family: 'Padauk', helvetica, sans-serif;
 }
 
 .bar1{
     background-color: white;
 }
 .bar2{
-    background-color: rgba(255,255,0,1);
+    background-color: rgba(255,255,0,0.3);
 }
 .bar3{
-    background-color: rgba(255,0,0,0.6);
+    background-color: rgba(255,0,0,0.3);
 }
 .bar4{
-    background-color: rgba(0,255,0,0.6);
+    background-color: rgba(0,255,0,0.3);
 }
 
 .container{
@@ -40,7 +40,16 @@ h1 {
     font-weight: 800;
     font-size: 8em;
     text-align: left;
-    padding: 0 0 0 30%; 
+    margin: auto;
+    padding: 0 2% 0 10%; 
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    color: grey;
+    padding: 0 2% 0 10%; 
+    margin-top: 1em;
 }
 
 .row p{
@@ -49,15 +58,26 @@ h1 {
    margin: auto;
 }
 
+strong { 
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
 p {
-    /*font-family: 'Roboto', sans-serif; */
-    font-weight: 800;
-    font-size: 1em;
+    font-size: 1.1em;
     text-align: left;
     padding: 0 0 0 0; 
     /*color: #4d4d4d;*/
     color: black;
 }
+p.quote{
+    font-weight: 400;
+    font-size: 1.6em;
+    /*text-align: center;*/
+    padding: 1.5% 0 0 0; 
+    color: #484848;
+}
+
 
 
 p.index-link-styling{
@@ -74,14 +94,6 @@ col-md-8p.index-link-styling-1{
     font-size: 4em;
     text-align: left;
     margin-bottom: 3%;
-}
-
-h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2em;
-    color: grey;
-    padding: 0 0 0 10%; 
-    margin-top: 1em;
 }
 
 
@@ -204,14 +216,6 @@ h4 img{
     height: auto;
 }
 
-p.quote{
-    font-family: 'Amiko', sans-serif; 
-    font-weight: 400;
-    font-size: 3em;
-    text-align: center;
-    padding: 1.5% 0 0 0; 
-    color: #484848;
-}
 
 /*styles text that spans page to full bleed*/
 .col-md-12 p{
