@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title> Alternatives to Incarceration </title>
+    <title> Impact Schools </title>
 
     <!-- Google fonts code -->
     <link href="https://fonts.googleapis.com/css?family=Amiko|Roboto|Montserrat" rel="stylesheet">
@@ -22,10 +22,61 @@
   </head>
 
   <body>
-    <!-- big text with its own container -->
-    <div class="title">
-        <h1> Alternatives to Incarceration </h1>
-        <h2>by Tola Oniyangi </h2>
+    <div class="bodyPanel">
+      <div class = "container" >
+        <div class="row">
+
+          <!-- <div class="col-md-12"> -->
+
+            <div class="bar1" id ="title">
+              <h1> Impact Schools </h1>
+              <h2> Has increased police presence in public and charter schools reduced school crime, and has this facilitated the school-to-prison pipeline? </h2>
+            </div>
+
+            <div class = "bar2" id = "content">
+              <p> 
+                NYPD officers who can handcuff and arrest suspects, including students, are stationed in 50 New York City public and charter schools. Impact schools were introduced by Mayor Bloomberg's administration to
+                <br>
+                While Impact Schools only make up 3% of New York City's public and charter schools, they are not equally distributed across all 5 boroughs. Queens has 34% of all impact schools, but these makes up only 5% of all public and charter schools in Queens. Staten Island, on the other hand, has only 12% of impact schools but these make up 8% of its public and charter schools. The Bronx, Brooklyn and Manhattan's impact schools make up 1%, 2% and 3% of their public and charter schools respectively. 
+              </p>
+              <br>
+              <br>
+              <div id="chart1"></div>
+            </div>
+
+            <div class = "bar3" id = "content">
+              <p> how were these impact schools selected and why? look at school attendance & crime here </p>
+              <p> but race complicates this - look at race here of school districts</p>
+              <p> what is the racial distribution of young people in nyc (just chart) & does this correlate with the number of young people in juvenile system? </p>
+              <p> Then looking at the impact schools themselves, has crime reduced or no? what is the racial distribution? </p>
+            </div>
+
+          <!-- </div> -->
+
+        </div>
       </div>
     </div>
+
   </body>
+
+  <script src="http://d3js.org/d3.v4.min.js"></script>
+  <script type="text/javascript">
+
+    importCharts()
+
+    function importCharts () {
+        d3.xml("svg/impactSchool_distribution.svg").mimeType("image/svg+xml").get(function(error, xml) {
+          var importedNode = document.importNode(xml.documentElement, true);
+          d3.select("div#chart1")
+            .each(function() {
+              this.appendChild(importedNode);
+            })
+          animateChart()
+        });
+    }
+
+    // function animateChart () {
+    //   when MN is hovered, make the rest v transparent & then show text - x public schools and y impact 
+    // }
+
+  </script>
