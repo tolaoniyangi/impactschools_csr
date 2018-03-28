@@ -38,18 +38,23 @@ body{
 h1 {
     font-family: 'Montserrat', sans-serif; 
     font-weight: 800;
-    font-size: 8em;
+    font-size: 5em;
     text-align: left;
     margin: auto;
     padding: 0 2% 0 10%; 
+    margin-top: 1%;
 }
 
 h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2em;
+    font-size: 1.5em;
     color: grey;
     padding: 0 2% 0 10%; 
     margin-top: 1em;
+}
+
+caption{
+    font-size: .5em;
 }
 
 .row p{

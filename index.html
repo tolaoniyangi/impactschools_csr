@@ -17,6 +17,12 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/site-specific.css">
 
+    <!-- leaflet -->
+    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+
+    <!-- Main tangram library -->
+    <script src="https://unpkg.com/tangram/dist/tangram.min.js"></script>
+
     <!-- favicon - img for browser -->
     <!-- <link rel="shortcut icon" type="image/png" href="img/logo.png"/> -->
   </head>
@@ -48,6 +54,12 @@
             </div>
 
             <div class = "bar3" id = "content">
+              <div id = "districtMap"> </div>
+
+              <div id="leafletmap"></div>
+              <div id='map'></div>
+
+              <p class="caption"> Racial distribution of </p>
               <p> how were these impact schools selected and why? look at school attendance & crime here </p>
               <p> but race complicates this - school districts + race </p>
             
@@ -66,6 +78,34 @@
 
   </body>
 
+  <style type="text/css">
+    /*css styling here */
+
+    /* Make the chart container fill the page using CSS. */
+    #chart {
+      position: fixed;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+    }
+
+    /*for map*/
+    body {
+      margin: 0px;
+      border: 0px;
+      padding: 0px;
+    }
+
+    #map {
+        height: 10%;
+        width: 10%;
+        position: absolute;
+    }
+
+  </style>
+
+
   <script src="http://d3js.org/d3.v4.min.js"></script>
   <script type="text/javascript">
 
@@ -81,6 +121,59 @@
           // animateChart()
         });
     }
+
+    // LEAFLET/MAPZEN MAP 
+    var map = L.map('map'
+      // , {
+      //   "keyboardZoomOffset" : 1.,
+      //   "minZoom" : 10,
+      //   "maxZoom" : 16,
+      //   "zoomControl" : true,
+      //   "zoomSnap" : 0.5,
+      //   "zoomDelta" : 1,
+      //   "wheelPxPerZoomLevel" : 1
+      // }
+    );
+
+    var layer = Tangram.leafletLayer({
+        scene: '../scenes/insetMap.yaml',
+    });
+
+    layer.addTo(map);
+    map.setView([40.7666561, -73.9036319], 10.5); //coordinates, scale
+
+      function onMapHover(selection) {
+        document.getElementById('map').style.cursor = selection.feature ? 'pointer' : '';
+      }
+      
+      // ADD TANGRAMLOADED LISTENER
+      var scene;
+      map.on('tangramloaded', function(e) {
+        var tangramLayer = e.tangramLayer;
+        scene = tangramLayer.scene;
+
+        tangramLayer.setSelectionEvents({
+          click: onMapClick,
+          hover: onMapHover
+        });
+
+      });
+
+// ADD SELECTION EVENTS
+      function onMapClick(selection) {
+        if (selection.feature) {
+          var latlng = selection.leaflet_event.latlng;
+          var label = selection.feature.properties.GLG_SYM;
+          showPopup(latlng, label);
+        }
+      }
+
+      function showPopup(latlng, label) {
+        popup
+          .setLatLng(latlng)
+          .setContent('<p>' + label + '</p>')
+          .openOn(map);        
+      }
 
     // function animateChart () {
     //   when MN is hovered, make the rest v transparent & then show text - x public schools and y impact 

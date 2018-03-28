@@ -1,0 +1,140 @@
+cameras:
+    camera1:
+        type: perspective
+
+lights:
+    light1:
+        type: directional
+        direction: [0, 1, -.5]
+        diffuse: .3
+        ambient: 1
+
+sources:
+    mapzen:
+        type: TopoJSON
+        url: https://tile.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.topojson?api_key=mapzen-LJDo7JL
+        min_zoom: 6
+        max_zoom: 16
+    scene:
+        background:
+            color: black
+
+
+layers:
+    
+    # boundaries:
+    #     data: { source: mapzen }
+    #     boroughBoundaries:
+    #         filter:
+    #             kind: [county]
+    #             not: {kind: [neighborhood, country, state,locality, region]}
+    #             $zoom: {min:2, max 10;}
+    #     draw:
+    #         lines:
+    #             order: 490
+    #             color: red 
+    #             width: 100
+    # boundaries2:            
+    #     data: { source: mapzen }
+    #     neighborhoodBoundaries:
+    #         filter:
+    #             not: {kind: [borough, country, state,locality, county, region]}
+    #             kind: [borough]
+    #             $zoom: {min:10, max 15;}
+    #     draw:
+    #         lines:
+    #             order: 490
+    #             color: red 
+    #             width: 100
+    # places:
+    #     data: { source: mapzen }
+    #     naighborhoodNames:
+    #         filter:
+    #             all:
+    #                 not: {kind: [borough, country, state, neighborhood], locality, county, region}
+    #                 # locality: New York
+    #                 # $zoom: {min:2, max 10;}
+    #     draw:
+    #         text:
+    #             font:
+    #                 order: 490
+    #                 transform: uppercase
+    #                 size: function() {return 35 - feature.scalerank * 2 - (20 - $zoom) }
+    #                 family: Roboto, helvetica, sans-serif
+    #                 weight: 600
+    #                 fill: red
+    #                 stroke:
+    #                     color: '#E5E5E5'
+    #                     width: 0
+
+                
+    
+    # default 
+    earth: #for most of the land stuff
+        data: { source: mapzen }
+        draw:
+            polygons:
+                order: function() { return feature.sort_rank; }
+                color: '#68808A'
+
+    landuse: #also land
+        data: { source: mapzen }
+        draw:
+            polygons:
+                order: function() { return feature.sort_rank; }
+                color: '#68808A'
+
+    water:
+        data: { source: mapzen }
+        draw:
+            polygons:
+                order: function() { return feature.sort_rank; }
+                color: '#34474F'
+
+    roads:
+        data: { source: mapzen }
+        filter:
+            not: { kind: [path, rail, ferry] }
+        draw:
+            lines:
+                order: function() { return feature.sort_rank; }
+                color: '#161E21'
+                width: 8
+                cap: round
+        highway:
+            filter:
+                kind: highway
+            draw:
+                lines:
+                    order: function() { return feature.sort_rank; }
+                    color: '#767875'
+                    width: 12
+                    outline:
+                        color: '#0b434f'
+                        width: 15
+        minor_road:
+            filter:
+                kind: minor_road
+            draw:
+                lines:
+                    order: function() { return feature.sort_rank; }
+                    color: '#D1D4CF'
+                    width: 5
+
+    buildings:
+        data: { source: mapzen }
+        draw:
+            polygons:
+                order: function() { return feature.sort_rank; }
+                color: |
+                    function () {
+                        var h = feature.height || 20;
+                        h = Math.min((h + 50)/ 255, 1); // max brightness: 1
+                        h = Math.max(h, .75); // min brightness: .75
+                        return [h, h, h];
+                    }
+        3d-buildings:
+            filter: { $zoom: { min: 15 } }
+            draw:
+                polygons:
+                    extrude: function () { return feature.height > 20 || $zoom >= 16; }
